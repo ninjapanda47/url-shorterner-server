@@ -49,6 +49,7 @@ module.exports = app => {
                         updatedAt
                     });
                     await item.save();
+                    console.log(item)
                     res.status(200).json(item);
                 }
             } catch (err) {
