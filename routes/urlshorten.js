@@ -4,6 +4,10 @@ const UrlShorten = mongoose.model("UrlShorten");
 const shortid = require("shortid");
 const errorUrl = 'http://localhost/error';
 module.exports = app => {
+    app.get("/", (req, res) => {
+        const welcome = `<html><body>This is the backend server for URL Shortener</body></html>`
+        res.send(welcome)
+    });
     app.get("/:code", async (req, res) => {
         const urlCode = req.params.code;
         const item = await UrlShorten.findOne({
